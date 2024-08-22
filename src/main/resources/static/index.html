@@ -35,7 +35,6 @@
         }).then(response => {
             if (response.ok) {
                 alert('Message sent!');
-                fetchMessages();
             } else {
                 alert('Failed to send message.');
             }
@@ -57,7 +56,7 @@
     }
 
     fetchMessages();
-    setInterval(fetchMessages, 5000);
+    setInterval(fetchMessages, 100);
 </script>
 </body>
 </html>
