@@ -4,13 +4,15 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.UUID;
+
 @SpringBootApplication
 public class JmsChatRoomApplication {
 
     static String clientId;
 
     public static void main(String[] args) {
-        clientId = args.length > 0 ? args[0] : "default-client";
+        clientId = UUID.randomUUID().toString();
         SpringApplication.run(JmsChatRoomApplication.class, args);
     }
 
