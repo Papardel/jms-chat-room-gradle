@@ -6,5 +6,5 @@ services:
     ports:
       - "8090:8090"
     environment:
-      BROKER_URL: 192.168.1.91
+      BROKER_URL: 9.246.213.79
       CLIENT_ID: vic
