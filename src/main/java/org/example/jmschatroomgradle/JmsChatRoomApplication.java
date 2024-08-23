@@ -4,8 +4,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import java.util.UUID;
-
 /**
  * Main class for the JMS Chat Room Spring Boot application.
  */
@@ -17,12 +15,15 @@ public class JmsChatRoomApplication {
 
     /**
      * Main method to run the Spring Boot application.
-     * Generates a unique client ID and starts the application.
+     * Reads the client ID from the environment variable and starts the application.
      *
      * @param args Command line arguments
      */
     public static void main(String[] args) {
-        clientId = UUID.randomUUID().toString();
+        clientId = System.getenv("CLIENT_ID");
+        if (clientId == null || clientId.isEmpty()) {
+            throw new IllegalArgumentException("CLIENT_ID environment variable is not set");
+        }
         SpringApplication.run(JmsChatRoomApplication.class, args);
     }
 

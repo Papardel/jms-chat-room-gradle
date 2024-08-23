@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  jmschatroom:
+    build: .
+    ports:
+      - "8090:8090"
+    environment:
+      BROKER_URL: 192.168.1.91
+      CLIENT_ID: vic
